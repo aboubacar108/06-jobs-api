@@ -1,31 +1,31 @@
-const Audit = require('../models/Audit')
+const Job = require('../models/Job')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 
 
-const getAllAudits = async (req, res) => {
-  res.send('get all audits')
+const getAllJobs = async (req, res) => {
+  res.send('get all jobs')
 }
-const getAudit = async (req, res) => {
-  res.send('get audit')
+const getJob = async (req, res) => {
+  res.send('get job')
 }
-const createAudit = async (req, res) => {
+const createJob = async (req, res) => {
   req.body.createdBy = req.user.userId
-  const audit = await Audit.create(req.body)
-  res.status(StatusCodes.CREATED).json({ audit })
+  const job = await Job.create(req.body)
+  res.status(StatusCodes.CREATED).json({ job })
 }
-const updateAudit = async (req, res) => {
-  res.send('update audit')
+const updateJob = async (req, res) => {
+  res.send('update job')
 }
-const deleteAudit = async (req, res) => {
-  res.send('delete audit')
+const deleteJob = async (req, res) => {
+  res.send('delete job')
 }
 
 
 module.exports = {
-  getAllAudits,
-  getAudit,
-  createAudit,
-  updateAudit,
-  deleteAudit,
+  getAllJobs,
+  getJob,
+  createJob,
+  updateJob,
+  deleteJob,
 }
