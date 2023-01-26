@@ -19,6 +19,7 @@ const getJob = async (req, res) => {
   res.status(StatusCodes.OK).json({ job })
 
 }
+
 const createJob = async (req, res) => {
   req.body.createdBy = req.user.userId
   const job = await Job.create(req.body)
@@ -53,9 +54,11 @@ const deleteJob = async (req, res) => {
   if(!job) {
     throw new NotFoundError(`No job with id ${jobId} found`)
   }
+
   res.status(StatusCodes.OK).json({msg: "The entry was deleted."})
 
 }
+
 
 
 module.exports = {
